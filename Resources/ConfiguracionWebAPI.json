@@ -11,7 +11,12 @@
     "Path_EL2": "D:\\Root.FirmaDigital.Cores\\EL2\\",
     "User_ES2": "Esalud",
     "Password_ES2": "eSaludUser$.*",
-    "Path_ES2": "D:\\Root.FirmaDigital.Cores\\ES2\\"
+    "Path_ES2": "D:\\Root.FirmaDigital.Cores\\ES2\\",
+    "Rectangle_With": 100,
+    "Rectangle_Height": 100,
+    "Rectangle_X": 0,
+    "Rectangle_Y": 0
+
   },
   "ConfiguracionOtro": {
     "Server_URL": "http://172.16.14.102:8060/"

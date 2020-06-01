@@ -4,11 +4,11 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webFirmaDigital
-        Public user As webUser = Nothing
+    Public Class RequestFirmaDigital
+        Public user As RequestUser = Nothing
         Public keystorePin As String = String.Empty
         Public certificateLabel As String = String.Empty
-        Public documents As List(Of webDocumento)
+        Public documents As List(Of RequestDocumento)
     End Class
 
 End Namespace

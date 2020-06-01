@@ -4,9 +4,9 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webGraphicSignature
+    Public Class RequestGraphicSignature
         Public pageIndex As String = String.Empty
-        Public rectangle As webRectangle = Nothing
+        Public rectangle As RequestRectangle = Nothing
     End Class
 
 End Namespace

@@ -4,7 +4,7 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webSignatureDetails
+    Public Class RequestSignatureDetails
         Public signatureName As String = String.Empty
         Public reason As String = String.Empty
         Public location As String = String.Empty

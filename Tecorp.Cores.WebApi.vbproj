@@ -77,12 +77,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\Enumerador.vb" />
-    <Compile Include="Entidades\webDocumento.vb" />
-    <Compile Include="Entidades\webFirmaDigital.vb" />
-    <Compile Include="Entidades\webGraphicSignature.vb" />
-    <Compile Include="Entidades\webRectangle.vb" />
-    <Compile Include="Entidades\webSignatureDetails.vb" />
-    <Compile Include="Entidades\webUser.vb" />
+    <Compile Include="Entidades\ResponseDocumento.vb" />
+    <Compile Include="Entidades\ResponseFirmaDigital.vb" />
+    <Compile Include="Entidades\RequestDocumento.vb" />
+    <Compile Include="Entidades\RequestFirmaDigital.vb" />
+    <Compile Include="Entidades\RequestGraphicSignature.vb" />
+    <Compile Include="Entidades\RequestRectangle.vb" />
+    <Compile Include="Entidades\RequestSignatureDetails.vb" />
+    <Compile Include="Entidades\RequestUser.vb" />
     <Compile Include="FirmaDigital\FirmaDigital.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

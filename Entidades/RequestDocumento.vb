@@ -4,13 +4,13 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webDocumento
+    Public Class RequestDocumento
         Public base64 As String = String.Empty
         Public filename As String = String.Empty
         Public signatureMethod As String = String.Empty
         Public pdfPassword As String = String.Empty
-        Public signatureDetails As webSignatureDetails = Nothing
-        Public graphicSignature As webGraphicSignature = Nothing
+        Public signatureDetails As RequestSignatureDetails = Nothing
+        Public graphicSignature As RequestGraphicSignature = Nothing
     End Class
 End Namespace
 

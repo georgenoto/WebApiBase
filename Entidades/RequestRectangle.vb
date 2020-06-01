@@ -4,7 +4,7 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webRectangle
+    Public Class RequestRectangle
         Public x As Integer = 0
         Public y As Integer = 0
         Public width As Integer = 0

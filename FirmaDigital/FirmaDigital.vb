@@ -23,6 +23,10 @@ Namespace Negocio
         Private _PasswordEL2 As String
         Private _userES2 As String
         Private _PasswordES2 As String
+        Private _RectangleWith As Integer
+        Private _RectangleHeight As Integer
+        Private _RectangleX As Integer
+        Private _RectangleY As Integer
         Private objJSON As JObject
 
 #End Region
@@ -82,7 +86,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property User_ES2() As String
+        Public Property User_ES2() As String
             Get
                 Return _userES2
             End Get
@@ -91,7 +95,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property Password_ES2() As String
+        Public Property Password_ES2() As String
             Get
                 Return _PasswordES2
             End Get
@@ -100,7 +104,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property User_EL2() As String
+        Public Property User_EL2() As String
             Get
                 Return _userEL2
             End Get
@@ -109,7 +113,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property Password_EL2() As String
+        Public Property Password_EL2() As String
             Get
                 Return _PasswordEL2
             End Get
@@ -118,7 +122,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property User_EP2() As String
+        Public Property User_EP2() As String
             Get
                 Return _userEP2
             End Get
@@ -127,7 +131,7 @@ Namespace Negocio
             End Set
         End Property
 
-        Private Property Password_EP2() As String
+        Public Property Password_EP2() As String
             Get
                 Return _PasswordEP2
             End Get
@@ -135,6 +139,40 @@ Namespace Negocio
                 _PasswordEP2 = value
             End Set
         End Property
+
+        Public Property Rectangle_With() As Integer
+            Get
+                Return _RectangleWith
+            End Get
+            Set(ByVal value As Integer)
+                _RectangleWith = value
+            End Set
+        End Property
+        Public Property Rectangle_Height() As Integer
+            Get
+                Return _RectangleHeight
+            End Get
+            Set(ByVal value As Integer)
+                _RectangleHeight = value
+            End Set
+        End Property
+        Public Property Rectangle_X() As Integer
+            Get
+                Return _RectangleX
+            End Get
+            Set(ByVal value As Integer)
+                _RectangleX = value
+            End Set
+        End Property
+        Public Property Rectangle_Y() As Integer
+            Get
+                Return _RectangleY
+            End Get
+            Set(ByVal value As Integer)
+                _RectangleY = value
+            End Set
+        End Property
+
 #End Region
 
 #Region "Metodos para leer el archivo de configuración Json"
@@ -144,54 +182,89 @@ Namespace Negocio
 #End Region
 
 #Region "Metodos para firma digital "
+
+
         ''' <summary>
         ''' Firma un archivo PDF lo guarda en la ruta que se especifica y devuelve el archivo firmado
         ''' </summary>
         ''' <param name="BEFirmaDigital"></param>
+        ''' <param name="CoreSistema"></param>
         ''' <returns></returns>
-        Public Async Function PdfV1_AgregarFirmaDigital(ByVal BEFirmaDigital As BE.webFirmaDigital, ByVal CoreSistema As BEnum.TipoCore) As Task(Of String)
-
-            Dim strJson As String = String.Empty
+        Public Async Function PdfV1_AgregarFirmaDigital(ByVal BEFirmaDigital As BE.RequestFirmaDigital, ByVal CoreSistema As BEnum.TipoCore) As Task(Of BE.ResponseFirmaDigital)
+            Dim BEResponseFirmaDigital As New BE.ResponseFirmaDigital
+            Dim strRequestJson As String = String.Empty
+            Dim strResponseJson As String = String.Empty
             Try
                 AgregarPath(BEFirmaDigital, CoreSistema)
-                strJson = JsonConvert.SerializeObject(BEFirmaDigital, Formatting.Indented)
-                strJson = Await BS.PostRequest(ServidorWebApi, PDFV1_URL, strJson)
+                strRequestJson = JsonConvert.SerializeObject(BEFirmaDigital, Formatting.Indented)
+                strResponseJson = Await BS.PostRequest(ServidorWebApi, PDFV1_URL, strRequestJson)
+                BEResponseFirmaDigital = JsonConvert.DeserializeObject(Of BE.ResponseFirmaDigital)(strResponseJson)
+
             Catch ex As Exception
-                Return strJson
+                BEResponseFirmaDigital.signedDocs = 0
+                BEResponseFirmaDigital.unsignedDocs = 0
+                BEResponseFirmaDigital.totalDocs = 0
+                BEResponseFirmaDigital.summary = "Error en la transacción"
+                BEResponseFirmaDigital.messages = New List(Of String)
+                BEResponseFirmaDigital.messages.Add(ex.Message)
+                BEResponseFirmaDigital.code = 0
+                BEResponseFirmaDigital.status = 0
+                BEResponseFirmaDigital.statusPhrase = "FALSE"
+                Return BEResponseFirmaDigital
             End Try
 
-            Return strJson
+            Return BEResponseFirmaDigital
         End Function
-
 
         ''' <summary>
         ''' Firma un archivo PDF lo guarda y devuelve el archivo firmado
         ''' </summary>
         ''' <param name="BEFirmaDigital"></param>
         ''' <returns></returns>
-        Public Async Function PdfV2_AgregarFirmaDigital(ByVal BEFirmaDigital As BE.webFirmaDigital) As Task(Of String)
-            Dim strJson As String = String.Empty
+        Public Async Function PdfV2_AgregarFirmaDigital(ByVal BEFirmaDigital As BE.RequestFirmaDigital) As Task(Of BE.ResponseFirmaDigital)
+            Dim BEResponseFirmaDigital As New BE.ResponseFirmaDigital
+            Dim strRequestJson As String = String.Empty
+            Dim strResponseJson As String = String.Empty
             Try
-                strJson = JsonConvert.SerializeObject(BEFirmaDigital, Formatting.Indented)
-                strJson = Await BS.PostRequest(ServidorWebApi, PDFV2_URL, strJson)
+                strRequestJson = JsonConvert.SerializeObject(BEFirmaDigital, Formatting.Indented)
+                strResponseJson = Await BS.PostRequest(ServidorWebApi, PDFV2_URL, strRequestJson)
+                BEResponseFirmaDigital = JsonConvert.DeserializeObject(Of BE.ResponseFirmaDigital)(strResponseJson)
             Catch ex As Exception
-                Return strJson
+                BEResponseFirmaDigital.signedDocs = 0
+                BEResponseFirmaDigital.unsignedDocs = 0
+                BEResponseFirmaDigital.totalDocs = 0
+                BEResponseFirmaDigital.summary = "Error en la transacción"
+                BEResponseFirmaDigital.messages = New List(Of String)
+                BEResponseFirmaDigital.messages.Add(ex.Message)
+                BEResponseFirmaDigital.code = 0
+                BEResponseFirmaDigital.status = 0
+                BEResponseFirmaDigital.statusPhrase = "FALSE"
+                Return BEResponseFirmaDigital
             End Try
 
-            Return strJson
+            Return BEResponseFirmaDigital
         End Function
 
+        Public Function ConvertFileToBase64(ByVal fileName As String) As String
+            Dim strResultado As String = String.Empty
+            Try
+                strResultado = Convert.ToBase64String(System.IO.File.ReadAllBytes(fileName))
+            Catch ex As Exception
+                Return strResultado
+            End Try
+            Return strResultado
+        End Function
 
 #End Region
 
 #Region "Metodos Auxiliarres"
-        Private Function ValidarObjetoFirma(ByVal objFirmaDigital As BE.webFirmaDigital, ByRef strMensaje As String) As Boolean
+        Private Function ValidarObjetoFirma(ByVal objFirmaDigital As BE.RequestFirmaDigital, ByRef strMensaje As String) As Boolean
             Dim bolResultado As Boolean = True
             Try
                 If objFirmaDigital IsNot Nothing Then
 
                 Else
-                    strMensaje = "El objeto no puede estar vacio, por favor cargue los datoe necesarios".
+                    strMensaje = "El objeto no puede estar vacio, por favor cargue los datos necesarios"
                 End If
             Catch ex As Exception
                 Return False
@@ -199,7 +272,7 @@ Namespace Negocio
             Return bolResultado
         End Function
 
-        Private Sub AgregarPath(ByRef objFirmaDigital As BE.webFirmaDigital, ByVal CoreSistema As BEnum.TipoCore)
+        Private Sub AgregarPath(ByRef objFirmaDigital As BE.RequestFirmaDigital, ByVal CoreSistema As BEnum.TipoCore)
             Dim strRutaCompleta As String = String.Empty
             Dim strPath As String = String.Empty
             Try
@@ -244,6 +317,10 @@ Namespace Negocio
             Password_EP2 = getValor("Password_EP2")
             Path_EP2 = getValor("Path_EP2")
 
+            Rectangle_With = getValor("Rectangle_With")
+            Rectangle_Height = getValor("Rectangle_Height")
+            Rectangle_X = getValor("Rectangle_X")
+            Rectangle_Y = getValor("Rectangle_Y")
 
         End Sub
 #End Region

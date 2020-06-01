@@ -2,7 +2,6 @@ D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electro
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\bin\Debug\Tecorp.Cores.WebApi.exe
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\bin\Debug\Tecorp.Cores.WebApi.pdb
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\bin\Debug\Tecorp.Cores.WebApi.xml
-D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.vbprojAssemblyReference.cache
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.Resources.resources
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.vbproj.GenerateResource.cache
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.exe
@@ -12,3 +11,4 @@ D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electro
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\bin\Debug\Newtonsoft.Json.xml
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.vbproj.CopyComplete
 D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.Form1.resources
+D:\OneDrive\TECORP\PROYECTOS INTERNOS\NSPF\NSCORES\Firma Digital y Firma Electronica\Tecorp.Cores.WebApi\obj\Debug\Tecorp.Cores.WebApi.vbprojAssemblyReference.cache

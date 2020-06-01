@@ -4,7 +4,7 @@ Option Strict On
 Option Infer On
 
 Namespace Entidad
-    Public Class webUser
+    Public Class RequestUser
         Public username As String = String.Empty
         Public password As String = String.Empty
     End Class
