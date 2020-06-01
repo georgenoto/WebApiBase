@@ -27,5 +27,20 @@ Tecorp.Cores.WebApi
   Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
+<member name="M:Tecorp.Cores.WebApi.Negocio.FirmaDigital.PdfV1_AgregarFirmaDigital(Tecorp.Cores.WebApi.Entidad.RequestFirmaDigital,Tecorp.Cores.WebApi.Base.Enumerador.TipoCore)">
+ <summary>
+ Firma un archivo PDF lo guarda en la ruta que se especifica y devuelve el archivo firmado
+ </summary>
+ <param name="BEFirmaDigital"></param>
+ <param name="CoreSistema"></param>
+ <returns></returns>
+</member>
+<member name="M:Tecorp.Cores.WebApi.Negocio.FirmaDigital.PdfV2_AgregarFirmaDigital(Tecorp.Cores.WebApi.Entidad.RequestFirmaDigital)">
+ <summary>
+ Firma un archivo PDF lo guarda y devuelve el archivo firmado
+ </summary>
+ <param name="BEFirmaDigital"></param>
+ <returns></returns>
+</member>
 </members>
 </doc>

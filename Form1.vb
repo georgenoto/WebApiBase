@@ -127,7 +127,7 @@ Public Class Form1
             objDocumento.graphicSignature.pageIndex = 1
 
             objDocumento.graphicSignature.rectangle = New BE.RequestRectangle
-            objDocumento.graphicSignature.rectangle.x = 100 'BSFirmaDigital.Rectangle_X 
+            objDocumento.graphicSignature.rectangle.x = BSFirmaDigital.Rectangle_X ' Solo es necesario mover x de 100 para ir hacia la derecha de la hoja
             objDocumento.graphicSignature.rectangle.y = BSFirmaDigital.Rectangle_Y
             objDocumento.graphicSignature.rectangle.width = BSFirmaDigital.Rectangle_With
             objDocumento.graphicSignature.rectangle.height = BSFirmaDigital.Rectangle_Height
